@@ -348,6 +348,12 @@ public class FEstudiantes extends javax.swing.JFrame {
 
     private void bRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarActionPerformed
 
+        
+        
+      
+        
+        
+        
     }//GEN-LAST:event_bRegistrarActionPerformed
 
     private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TEstudiantesMousePressed
