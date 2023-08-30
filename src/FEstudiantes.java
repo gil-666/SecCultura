@@ -51,7 +51,7 @@ public class FEstudiantes extends javax.swing.JFrame {
         THorario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        SCreditos = new javax.swing.JSpinner();
+        SFecha = new javax.swing.JSpinner();
         TPresupuesto = new javax.swing.JTextField();
         TEvento1 = new javax.swing.JTextField();
         CBTipo = new javax.swing.JComboBox<>();
@@ -131,7 +131,7 @@ public class FEstudiantes extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(102, 153, 255));
         jLabel11.setText("FECHA:");
 
-        SCreditos.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1693365025957L), null, null, java.util.Calendar.DAY_OF_WEEK_IN_MONTH));
+        SFecha.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1693365025957L), null, null, java.util.Calendar.DAY_OF_WEEK_IN_MONTH));
 
         TEvento1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -164,7 +164,7 @@ public class FEstudiantes extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SCreditos)
+                            .addComponent(SFecha)
                             .addComponent(TPresupuesto))))
                 .addGap(18, 18, 18))
         );
@@ -190,7 +190,7 @@ public class FEstudiantes extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(SCreditos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(527, 527, 527))
         );
 
@@ -314,16 +314,18 @@ public class FEstudiantes extends javax.swing.JFrame {
 
     private void bRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarActionPerformed
 
-        
-        
-      
-        
-        
-        
     }//GEN-LAST:event_bRegistrarActionPerformed
 
     private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TEstudiantesMousePressed
-        
+        DefaultTableModel datos = (DefaultTableModel)TEstudiantes.getModel();
+        int renglon = TEstudiantes.getSelectedRow();
+        if (renglon!=-1) {
+            TEvento1.setText(datos.getValueAt(renglon, 0).toString());
+            THorario.setText(datos.getValueAt(renglon, 1).toString());
+            CBTipo.setSelectedItem(Integer.valueOf(datos.getValueAt(renglon, 2).toString()));
+            TPresupuesto.setText(datos.getValueAt(renglon, 3).toString());
+            SFecha.setValue(Integer.valueOf(datos.getValueAt(renglon, 4).toString()));
+        }
     }//GEN-LAST:event_TEstudiantesMousePressed
 
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
@@ -383,7 +385,7 @@ public class FEstudiantes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CBTipo;
-    private javax.swing.JSpinner SCreditos;
+    private javax.swing.JSpinner SFecha;
     private javax.swing.JTable TEstudiantes;
     private javax.swing.JTextField TEvento1;
     private javax.swing.JTextField THorario;
