@@ -19,7 +19,7 @@ public class Artista implements Serializable {
     
     public int insertar(Conexion cnx) {
         try {
-            String sql = "INSERT INTO alumnos VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO alumnos VALUES(?,?,?,?,?)";
             PreparedStatement ps = cnx.con.prepareStatement(sql);
             ps.setString(1, Nombre);
             ps.setString(2, Sexo);

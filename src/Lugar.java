@@ -17,7 +17,7 @@ public class Lugar implements Serializable {
     
      public int insertar(Conexion cnx) {
         try {
-            String sql = "INSERT INTO evento VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO evento VALUES(?,?,?,?,?)";
             PreparedStatement ps = cnx.con.prepareStatement(sql);
             ps.setString(1, id_lugar);
             ps.setString(2, Nombre_lugar);

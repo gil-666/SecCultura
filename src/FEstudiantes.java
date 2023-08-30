@@ -13,7 +13,9 @@ import javax.swing.table.TableRowSorter;
 
 /**
  *
- * @author drlias
+ * @lajefa sinthia
+ * @author gil
+ * @author hugo
  */
 public class FEstudiantes extends javax.swing.JFrame {
 
