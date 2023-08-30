@@ -18,7 +18,7 @@ public class Eventos implements Serializable {
 
     public int insertar(Conexion cnx) {
         try {
-            String sql = "INSERT INTO evento VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO evento VALUES(?,?,?,?,?)";
             PreparedStatement ps = cnx.con.prepareStatement(sql);
             ps.setString(1, Evento);
             ps.setString(2, Horario);
