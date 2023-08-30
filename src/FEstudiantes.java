@@ -1,6 +1,7 @@
 
 import java.io.File;
 import java.sql.Date;
+import java.sql.Time;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.ImageIcon;
@@ -19,13 +20,20 @@ import javax.swing.table.TableRowSorter;
  */
 public class FEstudiantes extends javax.swing.JFrame {
    
-    
+    Conexion cnx = new Conexion();
     
     public FEstudiantes() {
         initComponents();
         setLocationRelativeTo(this);
         
         
+        if (cnx.conectar("localhost", "secretariadecultura", "root", "") == 1) {
+            JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
+            cnx.entablar("SELECT * FROM evento", TEstudiantes);
+        } else {
+            JOptionPane.showMessageDialog(this, "Error en la conexión");
+            
+        }
         
     }
 
@@ -48,13 +56,13 @@ public class FEstudiantes extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        THorario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        SCreditos = new javax.swing.JSpinner();
         TPresupuesto = new javax.swing.JTextField();
-        TEvento1 = new javax.swing.JTextField();
+        TEvento = new javax.swing.JTextField();
         CBTipo = new javax.swing.JComboBox<>();
+        THorario = new javax.swing.JTextField();
+        TFecha = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TEstudiantes = new javax.swing.JTable();
@@ -117,12 +125,6 @@ public class FEstudiantes extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(102, 153, 255));
         jLabel3.setText("EVENTO");
 
-        THorario.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                THorarioPropertyChange(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 153, 255));
         jLabel8.setText("PRESUPUESTO:");
@@ -131,15 +133,19 @@ public class FEstudiantes extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(102, 153, 255));
         jLabel11.setText("FECHA:");
 
-        SCreditos.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1693365025957L), null, null, java.util.Calendar.DAY_OF_WEEK_IN_MONTH));
-
-        TEvento1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        TEvento.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                TEvento1PropertyChange(evt);
+                TEventoPropertyChange(evt);
             }
         });
 
         CBTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Artístico", "Cultural", "Educativo", " ", " " }));
+
+        THorario.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                THorarioPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -150,6 +156,14 @@ public class FEstudiantes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TPresupuesto)
+                            .addComponent(TFecha)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
@@ -157,15 +171,7 @@ public class FEstudiantes extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CBTipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(THorario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TEvento1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SCreditos)
-                            .addComponent(TPresupuesto))))
+                            .addComponent(TEvento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
@@ -174,7 +180,7 @@ public class FEstudiantes extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(TEvento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -187,11 +193,14 @@ public class FEstudiantes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(TPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(SCreditos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(527, 527, 527))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(529, 529, 529))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -208,11 +217,6 @@ public class FEstudiantes extends javax.swing.JFrame {
                 "Evento", "Horario", "Tipo", "Presupuesto", "Fecha"
             }
         ));
-        TEstudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                TEstudiantesMousePressed(evt);
-            }
-        });
         jScrollPane1.setViewportView(TEstudiantes);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -314,17 +318,47 @@ public class FEstudiantes extends javax.swing.JFrame {
 
     private void bRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarActionPerformed
 
+        //1-. Obtener los datos de los controles
+        String evento = TEvento.getText();
+        String hor= THorario.getText();
+        String tip= CBTipo.getSelectedItem().toString();
+        String pres= TPresupuesto.getText();
+        String fecha= TFecha.getText();
+     
+
+        //2-. Crear un objeto con los datos
+        Eventos event= new Eventos(evento, hor, tip, pres, fecha);
+
+        //2-.Enviar el registro al servidor 
+        if (event.insertar(cnx) == 1) {
+            cnx.entablar("SELECT * FROM evento", TEstudiantes);
+            JOptionPane.showMessageDialog(this, "Registro Exitoso");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al registrar");
+        }
+    }                                          
+
+    private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {                                          
+          DefaultTableModel datos = (DefaultTableModel) TEstudiantes.getModel();
+
+        int renglon = TEstudiantes.getSelectedRow();
+        if (renglon != -1) {
+            TEvento.setText(datos.getValueAt(renglon, 0).toString());
+         
+           
+            THorario.setText(datos.getValueAt(renglon, 3).toString());
+            CBTipo.setSelectedItem(datos.getValueAt(renglon, 2).toString());
+            TPresupuesto.setText(datos.getValueAt(renglon, 3).toString());
+            TFecha.setText(datos.getValueAt(renglon, 3).toString());
         
+            
+        }
         
       
         
         
         
     }//GEN-LAST:event_bRegistrarActionPerformed
-
-    private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TEstudiantesMousePressed
-        
-    }//GEN-LAST:event_TEstudiantesMousePressed
 
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
 
@@ -334,12 +368,13 @@ public class FEstudiantes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bReporteActionPerformed
 
-    private void THorarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_THorarioPropertyChange
-    }//GEN-LAST:event_THorarioPropertyChange
-
-    private void TEvento1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TEvento1PropertyChange
+    private void TEventoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TEventoPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_TEvento1PropertyChange
+    }//GEN-LAST:event_TEventoPropertyChange
+
+    private void THorarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_THorarioPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_THorarioPropertyChange
 
     
     
@@ -383,9 +418,9 @@ public class FEstudiantes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CBTipo;
-    private javax.swing.JSpinner SCreditos;
     private javax.swing.JTable TEstudiantes;
-    private javax.swing.JTextField TEvento1;
+    private javax.swing.JTextField TEvento;
+    private javax.swing.JTextField TFecha;
     private javax.swing.JTextField THorario;
     private javax.swing.JTextField TPresupuesto;
     private javax.swing.JButton bNuevo;
