@@ -330,19 +330,19 @@ public class Conexion {
     //--------------------------------------------------------------------------
     //-------- ejecuta un reporte jasper
     //--------------------------------------------------------------------------
-    public int ejecutarReporte(String archivo, Map parametro) {
-        try {
-            JasperReport masterReport = (JasperReport) JRLoader.loadObject(new File(archivo));
-            JasperPrint jasperPrint = JasperFillManager.fillReport(masterReport, parametro, con);
-            JasperViewer jviewer = new JasperViewer(jasperPrint, false);
-            jviewer.setVisible(true);
-            System.out.println("el reporte se realizo exitosamente");
-            return 1;
-        } catch (Exception j) {
-            System.out.println("ERROR: "+j.getMessage());
-           return 0;
-        }
-    } 
+//    public int ejecutarReporte(String archivo, Map parametro) {
+//        try {
+//            JasperReport masterReport = (JasperReport) JRLoader.loadObject(new File(archivo));
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(masterReport, parametro, con);
+//            JasperViewer jviewer = new JasperViewer(jasperPrint, false);
+//            jviewer.setVisible(true);
+//            System.out.println("el reporte se realizo exitosamente");
+//            return 1;
+//        } catch (Exception j) {
+//            System.out.println("ERROR: "+j.getMessage());
+//           return 0;
+//        }
+//    } 
     // </editor-fold>
 
     

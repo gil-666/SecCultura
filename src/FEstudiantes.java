@@ -381,8 +381,8 @@ public class FEstudiantes extends javax.swing.JFrame {
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-        String absolutePath = "C:/Users/troll/OneDrive/Escritorio/SecCultura/src/evento.jrxml";
-        cnx.ejecutarReporte(absolutePath, null);
+//        String absolutePath = "C:/Users/troll/OneDrive/Escritorio/SecCultura/src/evento.jrxml";
+//        cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
     private void TEventoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TEventoPropertyChange
