@@ -29,7 +29,7 @@ public class FArtistas extends javax.swing.JFrame {
         
         if (cnx.conectar("localhost", "secretariadecultura", "root", "") == 1) {
             JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
-            cnx.entablar("SELECT * FROM evento", TEstudiantes);
+            cnx.entablar("SELECT * FROM artista", TEstudiantes);
         } else {
             JOptionPane.showMessageDialog(this, "Error en la conexión");
             
@@ -102,7 +102,7 @@ public class FArtistas extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Registro de Estudiantes");
+        jLabel6.setText("Registro de Artista");
         jPanel3.add(jLabel6);
         jLabel6.setBounds(150, 40, 340, 30);
 

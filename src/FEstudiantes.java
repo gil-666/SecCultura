@@ -63,6 +63,7 @@ public class FEstudiantes extends javax.swing.JFrame {
         CBTipo = new javax.swing.JComboBox<>();
         THorario = new javax.swing.JTextField();
         TFecha = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TEstudiantes = new javax.swing.JTable();
@@ -85,16 +86,16 @@ public class FEstudiantes extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CUCSur - Registro de Estudiantes");
+        setTitle("Secretaría de Cultura - Registro de Evento");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
 
         jLabel5.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Secretaria De Cultura");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(140, 20, 340, 30);
+        jLabel5.setBounds(150, 10, 340, 30);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cultura (1).png"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -102,9 +103,9 @@ public class FEstudiantes extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Registro de Estudiantes");
+        jLabel6.setText("Registro de Evento");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(150, 40, 340, 30);
+        jLabel6.setBounds(150, 40, 340, 34);
 
         jLabel4.setBackground(new java.awt.Color(239, 217, 206));
         jPanel3.add(jLabel4);
@@ -147,6 +148,13 @@ public class FEstudiantes extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Lugar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -173,6 +181,10 @@ public class FEstudiantes extends javax.swing.JFrame {
                             .addComponent(THorario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TEvento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +212,9 @@ public class FEstudiantes extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(529, 529, 529))
+                .addGap(96, 96, 96)
+                .addComponent(jButton1)
+                .addGap(410, 410, 410))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -308,9 +322,11 @@ public class FEstudiantes extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 14, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -365,7 +381,8 @@ public class FEstudiantes extends javax.swing.JFrame {
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-
+        String absolutePath = "C:/Users/troll/OneDrive/Escritorio/SecCultura/src/evento.jrxml";
+        cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
     private void TEventoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TEventoPropertyChange
@@ -375,6 +392,11 @@ public class FEstudiantes extends javax.swing.JFrame {
     private void THorarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_THorarioPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_THorarioPropertyChange
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FLugar lug = new FLugar();
+        lug.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
     
@@ -426,6 +448,7 @@ public class FEstudiantes extends javax.swing.JFrame {
     private javax.swing.JButton bNuevo;
     private javax.swing.JButton bRegistrar;
     private javax.swing.JButton bReporte;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

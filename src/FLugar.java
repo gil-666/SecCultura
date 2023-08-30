@@ -28,8 +28,8 @@ public class FLugar extends javax.swing.JFrame {
         
         
         if (cnx.conectar("localhost", "secretariadecultura", "root", "") == 1) {
-            JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
-            cnx.entablar("SELECT * FROM evento", TEstudiantes);
+//            JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
+            cnx.entablar("SELECT * FROM lugar", TEstudiantes);
         } else {
             JOptionPane.showMessageDialog(this, "Error en la conexión");
             
@@ -58,11 +58,11 @@ public class FLugar extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        TPresupuesto = new javax.swing.JTextField();
-        TEvento = new javax.swing.JTextField();
-        CBTipo = new javax.swing.JComboBox<>();
-        THorario = new javax.swing.JTextField();
-        TFecha = new javax.swing.JTextField();
+        TCapacidad = new javax.swing.JTextField();
+        TID = new javax.swing.JTextField();
+        TNombre = new javax.swing.JTextField();
+        TTamano = new javax.swing.JTextField();
+        TUbicacion = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TEstudiantes = new javax.swing.JTable();
@@ -84,17 +84,17 @@ public class FLugar extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CUCSur - Registro de Estudiantes");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Secretaría de Cultura - Registro de Lugar");
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 0));
         jPanel3.setLayout(null);
 
         jLabel5.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 51, 255));
         jLabel5.setText("Secretaria De Cultura");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(140, 20, 340, 30);
+        jLabel5.setBounds(150, 10, 340, 30);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cultura (1).png"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -102,9 +102,9 @@ public class FLugar extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Registro de Estudiantes");
+        jLabel6.setText("Registro de Lugar");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(150, 40, 340, 30);
+        jLabel6.setBounds(150, 40, 340, 34);
 
         jLabel4.setBackground(new java.awt.Color(239, 217, 206));
         jPanel3.add(jLabel4);
@@ -115,11 +115,11 @@ public class FLugar extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel1.setText("HORARIO:");
+        jLabel1.setText("NOMBRE:");
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel2.setText("TIPO:");
+        jLabel2.setText("UBICACION:");
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 153, 255));
@@ -131,19 +131,23 @@ public class FLugar extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel11.setText("TAMAÑO:");
+        jLabel11.setText("TAMAÑO (m2):");
 
-        TEvento.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        TID.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                TEventoPropertyChange(evt);
+                TIDPropertyChange(evt);
             }
         });
 
-        CBTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Artístico", "Cultural", "Educativo", " ", " " }));
-
-        THorario.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        TNombre.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                THorarioPropertyChange(evt);
+                TNombrePropertyChange(evt);
+            }
+        });
+
+        TUbicacion.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                TUbicacionPropertyChange(evt);
             }
         });
 
@@ -152,26 +156,33 @@ public class FLugar extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TPresupuesto)
-                            .addComponent(TFecha)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CBTipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(THorario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TEvento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(TUbicacion)
+                            .addComponent(TNombre)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(TID, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel8)
+                                .addGap(20, 20, 20))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TCapacidad, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                            .addComponent(TTamano))))
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
@@ -180,27 +191,24 @@ public class FLugar extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(TEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(THorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(CBTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(TPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel11))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(529, 529, 529))
+                    .addComponent(TCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TTamano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(534, 534, 534))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -214,7 +222,7 @@ public class FLugar extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Evento", "Horario", "Tipo", "Presupuesto", "Fecha"
+                "ID", "Nombre de lugar", "Ubicación", "Capacidad", "Tamaño (m2)"
             }
         ));
         jScrollPane1.setViewportView(TEstudiantes);
@@ -225,7 +233,7 @@ public class FLugar extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -319,18 +327,18 @@ public class FLugar extends javax.swing.JFrame {
     private void bRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarActionPerformed
 
         //1-. Obtener los datos de los controles
-        String evento = TEvento.getText();
-        String hor= THorario.getText();
-        String tip= CBTipo.getSelectedItem().toString();
-        String pres= TPresupuesto.getText();
-        String fecha= TFecha.getText();
+        String id = TID.getText();
+        String nombre_lugar= TNombre.getText();
+        String ubi= TUbicacion.getText();
+        String cap= TCapacidad.getText();
+        String tam= TTamano.getText();
      
 
         //2-. Crear un objeto con los datos
-        Eventos event= new Eventos(evento, hor, tip, pres, fecha);
+        Lugar lug= new Lugar(nombre_lugar, nombre_lugar, ubi, cap, tam);
 
         //2-.Enviar el registro al servidor 
-        if (event.insertar(cnx) == 1) {
+        if (lug.insertar(cnx) == 1) {
             cnx.entablar("SELECT * FROM evento", TEstudiantes);
             JOptionPane.showMessageDialog(this, "Registro Exitoso");
         } else {
@@ -343,13 +351,13 @@ public class FLugar extends javax.swing.JFrame {
 
         int renglon = TEstudiantes.getSelectedRow();
         if (renglon != -1) {
-            TEvento.setText(datos.getValueAt(renglon, 0).toString());
+            TID.setText(datos.getValueAt(renglon, 0).toString());
          
            
-            THorario.setText(datos.getValueAt(renglon, 3).toString());
-            CBTipo.setSelectedItem(datos.getValueAt(renglon, 2).toString());
-            TPresupuesto.setText(datos.getValueAt(renglon, 3).toString());
-            TFecha.setText(datos.getValueAt(renglon, 3).toString());
+            TNombre.setText(datos.getValueAt(renglon, 1).toString());
+            TUbicacion.setText(datos.getValueAt(renglon, 2).toString());
+            TCapacidad.setText(datos.getValueAt(renglon, 3).toString());
+            TTamano.setText(datos.getValueAt(renglon, 4).toString());
         
             
         }
@@ -368,13 +376,17 @@ public class FLugar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bReporteActionPerformed
 
-    private void TEventoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TEventoPropertyChange
+    private void TIDPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TIDPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_TEventoPropertyChange
+    }//GEN-LAST:event_TIDPropertyChange
 
-    private void THorarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_THorarioPropertyChange
+    private void TNombrePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TNombrePropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_THorarioPropertyChange
+    }//GEN-LAST:event_TNombrePropertyChange
+
+    private void TUbicacionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TUbicacionPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TUbicacionPropertyChange
 
     
     
@@ -417,12 +429,12 @@ public class FLugar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CBTipo;
+    private javax.swing.JTextField TCapacidad;
     private javax.swing.JTable TEstudiantes;
-    private javax.swing.JTextField TEvento;
-    private javax.swing.JTextField TFecha;
-    private javax.swing.JTextField THorario;
-    private javax.swing.JTextField TPresupuesto;
+    private javax.swing.JTextField TID;
+    private javax.swing.JTextField TNombre;
+    private javax.swing.JTextField TTamano;
+    private javax.swing.JTextField TUbicacion;
     private javax.swing.JButton bNuevo;
     private javax.swing.JButton bRegistrar;
     private javax.swing.JButton bReporte;
