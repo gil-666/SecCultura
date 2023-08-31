@@ -26,11 +26,10 @@ public class FArtistas extends javax.swing.JFrame {
         setLocationRelativeTo(this);
 
         if (cnx.conectar("localhost", "secretariadecultura", "root", "") == 1) {
-            JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
             cnx.entablar("SELECT * FROM artista", TArtistas);
         } else {
             JOptionPane.showMessageDialog(this, "Error en la conexión");
-
+            System.exit(0);
         }
 
     }
@@ -351,6 +350,7 @@ public class FArtistas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Registro Exitoso");
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar");
+            System.exit(0);
         }
     }//GEN-LAST:event_bRegistrarActionPerformed
 
@@ -359,7 +359,7 @@ public class FArtistas extends javax.swing.JFrame {
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-        String absolutePath = "C:/Users/Sinthia Anaya/Desktop/SecCultura/src/artista.jrxml";
+        String absolutePath = new File(System.getProperty("user.dir")+("/src/lugar.jrxml")).toString();
         cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
@@ -372,7 +372,7 @@ public class FArtistas extends javax.swing.JFrame {
     }//GEN-LAST:event_TNacimietnoPropertyChange
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FHome home= new FHome();
+        FHome home= new FHome(1);
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

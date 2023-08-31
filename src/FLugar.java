@@ -28,11 +28,10 @@ public class FLugar extends javax.swing.JFrame {
         
         
         if (cnx.conectar("localhost", "secretariadecultura", "root", "") == 1) {
-//            JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
             cnx.entablar("SELECT * FROM lugar", TLugar);
         } else {
             JOptionPane.showMessageDialog(this, "Error en la conexión");
-            
+            System.exit(0);
         }
         
     }
@@ -84,7 +83,7 @@ public class FLugar extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Secretaría de Cultura - Registro de Lugar");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 0));
@@ -383,7 +382,7 @@ public class FLugar extends javax.swing.JFrame {
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-        String absolutePath = "C:/Users/Sinthia Anaya/Desktop/SecCultura/src/lugar.jrxml";
+        String absolutePath = new File(System.getProperty("user.dir")+("/src/lugar.jrxml")).toString();
         cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
@@ -400,7 +399,7 @@ public class FLugar extends javax.swing.JFrame {
     }//GEN-LAST:event_TUbicacionPropertyChange
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FHome home= new FHome();
+        FHome home= new FHome(1);
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

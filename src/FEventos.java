@@ -28,11 +28,10 @@ public class FEventos extends javax.swing.JFrame {
         
         
         if (cnx.conectar("localhost", "secretariadecultura", "root", "") == 1) {
-            JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
             cnx.entablar("SELECT * FROM evento", TEstudiantes);
         } else {
             JOptionPane.showMessageDialog(this, "Error en la conexión");
-            
+            System.exit(0);
         }
         
     }
@@ -385,7 +384,7 @@ public class FEventos extends javax.swing.JFrame {
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-        String absolutePath = "C:/Users/Sinthia Anaya/Desktop/SecCultura/src/evento.jrxml";
+        String absolutePath = new File(System.getProperty("user.dir")+("/src/eventos.jrxml")).toString();
         cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
@@ -429,7 +428,7 @@ public class FEventos extends javax.swing.JFrame {
     }//GEN-LAST:event_TEstudiantesMousePressed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        FHome home= new FHome();
+        FHome home= new FHome(1);
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
