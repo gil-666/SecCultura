@@ -29,7 +29,7 @@ public class FLugar extends javax.swing.JFrame {
         
         if (cnx.conectar("localhost", "secretariadecultura", "root", "") == 1) {
 //            JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
-            cnx.entablar("SELECT * FROM lugar", TEstudiantes);
+            cnx.entablar("SELECT * FROM lugar", TLugar);
         } else {
             JOptionPane.showMessageDialog(this, "Error en la conexión");
             
@@ -65,7 +65,7 @@ public class FLugar extends javax.swing.JFrame {
         TUbicacion = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TEstudiantes = new javax.swing.JTable();
+        TLugar = new javax.swing.JTable();
         jToolBar1 = new javax.swing.JToolBar();
         jPanel4 = new javax.swing.JPanel();
         bNuevo = new javax.swing.JButton();
@@ -214,7 +214,7 @@ public class FLugar extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        TEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
+        TLugar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -225,7 +225,7 @@ public class FLugar extends javax.swing.JFrame {
                 "ID", "Nombre de lugar", "Ubicación", "Capacidad", "Tamaño (m2)"
             }
         ));
-        jScrollPane1.setViewportView(TEstudiantes);
+        jScrollPane1.setViewportView(TLugar);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -339,7 +339,7 @@ public class FLugar extends javax.swing.JFrame {
 
         //2-.Enviar el registro al servidor 
         if (lug.insertar(cnx) == 1) {
-            cnx.entablar("SELECT * FROM evento", TEstudiantes);
+            cnx.entablar("SELECT * FROM evento", TLugar);
             JOptionPane.showMessageDialog(this, "Registro Exitoso");
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar");
@@ -347,9 +347,9 @@ public class FLugar extends javax.swing.JFrame {
     }                                          
 
     private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {                                          
-          DefaultTableModel datos = (DefaultTableModel) TEstudiantes.getModel();
+          DefaultTableModel datos = (DefaultTableModel) TLugar.getModel();
 
-        int renglon = TEstudiantes.getSelectedRow();
+        int renglon = TLugar.getSelectedRow();
         if (renglon != -1) {
             TID.setText(datos.getValueAt(renglon, 0).toString());
          
@@ -409,13 +409,13 @@ public class FLugar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -423,15 +423,15 @@ public class FLugar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FEstudiantes().setVisible(true);
+                new FEventos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TCapacidad;
-    private javax.swing.JTable TEstudiantes;
     private javax.swing.JTextField TID;
+    private javax.swing.JTable TLugar;
     private javax.swing.JTextField TNombre;
     private javax.swing.JTextField TTamano;
     private javax.swing.JTextField TUbicacion;

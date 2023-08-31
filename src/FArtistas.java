@@ -27,7 +27,7 @@ public class FArtistas extends javax.swing.JFrame {
 
         if (cnx.conectar("localhost", "secretariadecultura", "root", "") == 1) {
             JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
-            cnx.entablar("SELECT * FROM artista", TEstudiantes);
+            cnx.entablar("SELECT * FROM artista", TArtistas);
         } else {
             JOptionPane.showMessageDialog(this, "Error en la conexión");
 
@@ -63,7 +63,7 @@ public class FArtistas extends javax.swing.JFrame {
         TNacimietno = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TEstudiantes = new javax.swing.JTable();
+        TArtistas = new javax.swing.JTable();
         jToolBar1 = new javax.swing.JToolBar();
         jPanel4 = new javax.swing.JPanel();
         bNuevo = new javax.swing.JButton();
@@ -208,7 +208,7 @@ public class FArtistas extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        TEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
+        TArtistas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -219,7 +219,7 @@ public class FArtistas extends javax.swing.JFrame {
                 "Nombre", "Sexo", "Nacimiento", "Departamento", "ID"
             }
         ));
-        jScrollPane1.setViewportView(TEstudiantes);
+        jScrollPane1.setViewportView(TArtistas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -332,7 +332,7 @@ public class FArtistas extends javax.swing.JFrame {
 
         //2-.Enviar el registro al servidor 
         if (event.insertar(cnx) == 1) {
-            cnx.entablar("SELECT * FROM artista", TEstudiantes);
+            cnx.entablar("SELECT * FROM artista", TArtistas);
             JOptionPane.showMessageDialog(this, "Registro Exitoso");
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar");
@@ -340,9 +340,9 @@ public class FArtistas extends javax.swing.JFrame {
     }
 
     private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {
-        DefaultTableModel datos = (DefaultTableModel) TEstudiantes.getModel();
+        DefaultTableModel datos = (DefaultTableModel) TArtistas.getModel();
 
-        int renglon = TEstudiantes.getSelectedRow();
+        int renglon = TArtistas.getSelectedRow();
         if (renglon != -1) {
             TNombre.setText(datos.getValueAt(renglon, 0).toString());
 
@@ -393,13 +393,13 @@ public class FArtistas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEventos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -407,14 +407,14 @@ public class FArtistas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FEstudiantes().setVisible(true);
+                new FEventos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TArtistas;
     private javax.swing.JTextField TDepartamento;
-    private javax.swing.JTable TEstudiantes;
     private javax.swing.JTextField TId;
     private javax.swing.JTextField TNacimietno;
     private javax.swing.JTextField TNombre;
