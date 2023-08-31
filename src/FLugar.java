@@ -48,7 +48,6 @@ public class FLugar extends javax.swing.JFrame {
 
         jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -91,47 +90,42 @@ public class FLugar extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 0));
         jPanel3.setLayout(null);
 
-        jLabel5.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel5.setText("Secretaria De Cultura");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(150, 10, 340, 30);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cultura (1).png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/escenario.png"))); // NOI18N
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(50, 10, 70, 70);
+        jLabel7.setBounds(80, 10, 80, 80);
 
-        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setFont(new java.awt.Font("Roboto Medium", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 51, 51));
         jLabel6.setText("Registro de Lugar");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(150, 40, 340, 34);
+        jLabel6.setBounds(180, 40, 340, 40);
 
         jLabel4.setBackground(new java.awt.Color(239, 217, 206));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fondo de Zoom con temática corporativa azul degradado.png"))); // NOI18N
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(0, 20, 1050, 90);
+        jLabel4.setBounds(0, 0, 1080, 90);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(218, 255, 251));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel1.setForeground(new java.awt.Color(23, 107, 135));
         jLabel1.setText("NOMBRE:");
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel2.setForeground(new java.awt.Color(23, 107, 135));
         jLabel2.setText("UBICACION:");
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel3.setForeground(new java.awt.Color(23, 107, 135));
         jLabel3.setText("ID LUGAR:");
 
         jLabel8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel8.setForeground(new java.awt.Color(23, 107, 135));
         jLabel8.setText("CAPACIDAD:");
 
         jLabel11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel11.setForeground(new java.awt.Color(23, 107, 135));
         jLabel11.setText("TAMAÑO (m2):");
 
         TID.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -164,13 +158,11 @@ public class FLugar extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TNombre, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(TUbicacion)
-                            .addComponent(TNombre)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(TID, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(TID)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -212,7 +204,7 @@ public class FLugar extends javax.swing.JFrame {
                 .addGap(534, 534, 534))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(218, 255, 251));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         TLugar.setModel(new javax.swing.table.DefaultTableModel(
@@ -468,7 +460,6 @@ public class FLugar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

@@ -88,41 +88,43 @@ public class FArtistas extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/etapa.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/microfono.png"))); // NOI18N
         jPanel3.add(jLabel9);
         jLabel9.setBounds(70, 10, 70, 64);
 
-        jLabel6.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setBackground(new java.awt.Color(0, 28, 48));
+        jLabel6.setFont(new java.awt.Font("Roboto Black", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 255));
         jLabel6.setText("Registro de Artista");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(210, 30, 410, 30);
+        jLabel6.setBounds(170, 30, 410, 50);
 
         jLabel4.setBackground(new java.awt.Color(239, 217, 206));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fondo de Zoom con temática corporativa azul degradado.png"))); // NOI18N
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(0, 0, 1050, 90);
+        jLabel4.setBounds(0, 0, 1080, 90);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(226, 246, 202));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel1.setForeground(new java.awt.Color(23, 107, 135));
         jLabel1.setText("SEXO:");
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel2.setForeground(new java.awt.Color(23, 107, 135));
         jLabel2.setText("NACIMIENTO:");
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel3.setForeground(new java.awt.Color(23, 107, 135));
         jLabel3.setText("NOMBRE:");
 
         jLabel8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel8.setForeground(new java.awt.Color(23, 107, 135));
         jLabel8.setText("DEPARTAMENTO:");
 
         jLabel11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel11.setForeground(new java.awt.Color(23, 107, 135));
         jLabel11.setText("ID:");
 
         TNombre.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -152,14 +154,6 @@ public class FArtistas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TDepartamento)
-                            .addComponent(TId)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
@@ -167,7 +161,18 @@ public class FArtistas extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TSEXO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TNacimietno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(TNacimietno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel11))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(TDepartamento))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(TId)))))
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
@@ -199,7 +204,7 @@ public class FArtistas extends javax.swing.JFrame {
                 .addGap(529, 529, 529))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(218, 255, 251));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         TArtistas.setModel(new javax.swing.table.DefaultTableModel(
