@@ -225,6 +225,11 @@ public class FLugar extends javax.swing.JFrame {
                 "ID", "Nombre de lugar", "Ubicación", "Capacidad", "Tamaño (m2)"
             }
         ));
+        TLugar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TLugarMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(TLugar);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -373,7 +378,8 @@ public class FLugar extends javax.swing.JFrame {
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-
+        String absolutePath = "C:/Users/troll/OneDrive/Escritorio/SecCultura/src/lugar.jrxml";
+        cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
     private void TIDPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TIDPropertyChange
@@ -387,6 +393,23 @@ public class FLugar extends javax.swing.JFrame {
     private void TUbicacionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TUbicacionPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_TUbicacionPropertyChange
+
+    private void TLugarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TLugarMousePressed
+                  DefaultTableModel datos = (DefaultTableModel) TLugar.getModel();
+
+        int renglon = TLugar.getSelectedRow();
+        if (renglon != -1) {
+            TID.setText(datos.getValueAt(renglon, 0).toString());
+         
+           
+            TCapacidad.setText(datos.getValueAt(renglon, 3).toString());
+            TUbicacion.setText(datos.getValueAt(renglon, 2).toString());
+            TNombre.setText(datos.getValueAt(renglon, 1).toString());
+            TTamano.setText(datos.getValueAt(renglon, 4).toString());
+        
+            
+        }
+    }//GEN-LAST:event_TLugarMousePressed
 
     
     

@@ -18,12 +18,13 @@ import java.io.File;
 import java.util.Calendar;
 
 
-/*import java.util.Map;
+import java.util.Map;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;*/
+import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.engine.JasperCompileManager;
 
 public class Conexion {
 
@@ -330,19 +331,21 @@ public class Conexion {
     //--------------------------------------------------------------------------
     //-------- ejecuta un reporte jasper
     //--------------------------------------------------------------------------
-//    public int ejecutarReporte(String archivo, Map parametro) {
-//        try {
+    public int ejecutarReporte(String archivo, Map parametro) {
+        try {
+            String reportPath = archivo;
 //            JasperReport masterReport = (JasperReport) JRLoader.loadObject(new File(archivo));
-//            JasperPrint jasperPrint = JasperFillManager.fillReport(masterReport, parametro, con);
-//            JasperViewer jviewer = new JasperViewer(jasperPrint, false);
-//            jviewer.setVisible(true);
-//            System.out.println("el reporte se realizo exitosamente");
-//            return 1;
-//        } catch (Exception j) {
-//            System.out.println("ERROR: "+j.getMessage());
-//           return 0;
-//        }
-//    } 
+            JasperReport jr = JasperCompileManager.compileReport(reportPath);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jr, parametro, con);
+            JasperViewer jviewer = new JasperViewer(jasperPrint, false);
+            jviewer.setVisible(true);
+            System.out.println("el reporte se realizo exitosamente");
+            return 1;
+        } catch (Exception j) {
+            System.out.println("ERROR: "+j.getMessage());
+           return 0;
+        }
+    } 
     // </editor-fold>
 
     

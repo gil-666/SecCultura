@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="evento" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b3d4e7b-c369-42e0-95f8-fc2389ff4581">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="artista" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b3d4e7b-c369-42e0-95f8-fc2389ff4581">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<queryString>
-		<![CDATA[SELECT * FROM evento]]>
+		<![CDATA[SELECT * FROM artista]]>
 	</queryString>
-	<field name="Evento" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="Evento"/>
-		<property name="com.jaspersoft.studio.field.label" value="Evento"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="evento"/>
+	<field name="Nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="Nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="artista"/>
 	</field>
-	<field name="Horario" class="java.sql.Time">
-		<property name="com.jaspersoft.studio.field.name" value="Horario"/>
-		<property name="com.jaspersoft.studio.field.label" value="Horario"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="evento"/>
+	<field name="Sexo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Sexo"/>
+		<property name="com.jaspersoft.studio.field.label" value="Sexo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="artista"/>
 	</field>
-	<field name="Tipo" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="Tipo"/>
-		<property name="com.jaspersoft.studio.field.label" value="Tipo"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="evento"/>
+	<field name="nacimiento" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="nacimiento"/>
+		<property name="com.jaspersoft.studio.field.label" value="nacimiento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="artista"/>
 	</field>
-	<field name="Presupuesto" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.name" value="Presupuesto"/>
-		<property name="com.jaspersoft.studio.field.label" value="Presupuesto"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="evento"/>
+	<field name="Departamento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Departamento"/>
+		<property name="com.jaspersoft.studio.field.label" value="Departamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="artista"/>
 	</field>
-	<field name="Fecha" class="java.sql.Date">
-		<property name="com.jaspersoft.studio.field.name" value="Fecha"/>
-		<property name="com.jaspersoft.studio.field.label" value="Fecha"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="evento"/>
+	<field name="ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="artista"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -51,7 +51,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Sylfaen" size="24"/>
 				</textElement>
-				<text><![CDATA[Eventos]]></text>
+				<text><![CDATA[Artistas]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -64,7 +64,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Sylfaen" size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Evento]]></text>
+				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="100" y="0" width="180" height="30" backcolor="#FFADFB" uuid="65b8d721-8533-4dcf-842b-f4d29959752f">
@@ -73,7 +73,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Sylfaen" size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Horario]]></text>
+				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="280" y="0" width="100" height="30" backcolor="#FFADFB" uuid="4d650f73-ceec-4527-beb7-85df41e35454">
@@ -82,7 +82,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Sylfaen" size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tipo]]></text>
+				<text><![CDATA[Sexo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="380" y="0" width="100" height="30" backcolor="#FFADFB" uuid="66efaf43-a750-4447-87eb-b75d216d3097">
@@ -91,7 +91,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Sylfaen" size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Presupuesto]]></text>
+				<text><![CDATA[Nacimiento]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="480" y="0" width="100" height="30" backcolor="#FFADFB" uuid="ba0f4eef-6f26-4aa5-9f05-83a3decbbe2b">
@@ -100,7 +100,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Sylfaen" size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Fecha]]></text>
+				<text><![CDATA[Departamento]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -117,7 +117,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Evento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="100" y="0" width="180" height="30" uuid="36138e83-b392-4103-a9b3-1e5f89df5a12">
@@ -130,7 +130,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Horario}.toString()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="280" y="0" width="100" height="30" uuid="a3a006c2-8056-4203-814a-7c238ba1cc95">
@@ -143,7 +143,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Tipo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Sexo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="380" y="0" width="100" height="30" uuid="8c12a527-9929-4d17-aa4a-ffbc75283d76">
@@ -156,7 +156,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Presupuesto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nacimiento}.toString()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="480" y="0" width="100" height="30" uuid="9037aa6b-b05a-44ef-b6ab-15e916075581">
@@ -169,7 +169,7 @@
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Fecha}.toString()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Departamento}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

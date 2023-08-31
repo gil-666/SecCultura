@@ -361,7 +361,8 @@ public class FArtistas extends javax.swing.JFrame {
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-
+        String absolutePath = "C:/Users/troll/OneDrive/Escritorio/SecCultura/src/artista.jrxml";
+        cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
     private void TNombrePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TNombrePropertyChange

@@ -243,6 +243,11 @@ public class FEventos extends javax.swing.JFrame {
                 "Evento", "Horario", "Tipo", "Presupuesto", "Fecha"
             }
         ));
+        TEstudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TEstudiantesMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(TEstudiantes);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -364,28 +369,6 @@ public class FEventos extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar");
         }
-    }                                          
-
-    private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {                                          
-          DefaultTableModel datos = (DefaultTableModel) TEstudiantes.getModel();
-
-        int renglon = TEstudiantes.getSelectedRow();
-        if (renglon != -1) {
-            TEvento.setText(datos.getValueAt(renglon, 0).toString());
-         
-           
-            THorario.setText(datos.getValueAt(renglon, 3).toString());
-            CBTipo.setSelectedItem(datos.getValueAt(renglon, 2).toString());
-            TPresupuesto.setText(datos.getValueAt(renglon, 3).toString());
-            TFecha.setText(datos.getValueAt(renglon, 3).toString());
-        
-            
-        }
-        
-      
-        
-        
-        
     }//GEN-LAST:event_bRegistrarActionPerformed
 
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
@@ -393,8 +376,8 @@ public class FEventos extends javax.swing.JFrame {
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-//        String absolutePath = "C:/Users/troll/OneDrive/Escritorio/SecCultura/src/evento.jrxml";
-//        cnx.ejecutarReporte(absolutePath, null);
+        String absolutePath = "C:/Users/troll/OneDrive/Escritorio/SecCultura/src/evento.jrxml";
+        cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
     private void TEventoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TEventoPropertyChange
@@ -414,6 +397,26 @@ public class FEventos extends javax.swing.JFrame {
         FArtistas art = new FArtistas();
         art.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TEstudiantesMousePressed
+                 DefaultTableModel datos = (DefaultTableModel) TEstudiantes.getModel();
+
+        int renglon = TEstudiantes.getSelectedRow();
+        if (renglon != -1) {
+            TEvento.setText(datos.getValueAt(renglon, 0).toString());
+            THorario.setText(datos.getValueAt(renglon, 1).toString());
+            CBTipo.setSelectedItem(datos.getValueAt(renglon, 2).toString());
+            if (TPresupuesto.getText().contains("$")){
+                TPresupuesto.setText(datos.getValueAt(renglon, 3).toString());
+            }else{
+                TPresupuesto.setText("$"+datos.getValueAt(renglon, 3).toString());
+            }
+            
+            TFecha.setText(datos.getValueAt(renglon, 4).toString());
+        
+            
+        }
+    }//GEN-LAST:event_TEstudiantesMousePressed
 
     
     
