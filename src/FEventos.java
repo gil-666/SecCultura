@@ -302,6 +302,9 @@ public class FEventos extends javax.swing.JFrame {
         bReporte.setText("REPORTE");
         bReporte.setFocusable(false);
         bReporte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bReporte.setMaximumSize(new java.awt.Dimension(90, 59));
+        bReporte.setMinimumSize(new java.awt.Dimension(90, 59));
+        bReporte.setPreferredSize(new java.awt.Dimension(110, 59));
         bReporte.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         bReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
