@@ -74,6 +74,7 @@ public class FEventos extends javax.swing.JFrame {
         bRegistrar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         bReporte = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -310,6 +311,17 @@ public class FEventos extends javax.swing.JFrame {
         });
         jPanel4.add(bReporte);
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pagina-de-inicio.png"))); // NOI18N
+        jButton3.setText("INICIO");
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton3);
+
         jToolBar1.add(jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -415,6 +427,11 @@ public class FEventos extends javax.swing.JFrame {
         art.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        FHome home= new FHome();
+        home.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     
     
     
@@ -469,6 +486,7 @@ public class FEventos extends javax.swing.JFrame {
     private javax.swing.JButton bReporte;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

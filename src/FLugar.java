@@ -72,6 +72,7 @@ public class FLugar extends javax.swing.JFrame {
         bRegistrar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         bReporte = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -292,6 +293,17 @@ public class FLugar extends javax.swing.JFrame {
         });
         jPanel4.add(bReporte);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pagina-de-inicio.png"))); // NOI18N
+        jButton1.setText("INICIO");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1);
+
         jToolBar1.add(jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -388,6 +400,11 @@ public class FLugar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TUbicacionPropertyChange
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FHome home= new FHome();
+        home.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
     
     
@@ -438,6 +455,7 @@ public class FLugar extends javax.swing.JFrame {
     private javax.swing.JButton bNuevo;
     private javax.swing.JButton bRegistrar;
     private javax.swing.JButton bReporte;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
