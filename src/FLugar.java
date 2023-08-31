@@ -243,6 +243,7 @@ public class FLugar extends javax.swing.JFrame {
         );
 
         jToolBar1.setRollover(true);
+        jToolBar1.setOpaque(false);
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
         jPanel4.setMaximumSize(new java.awt.Dimension(400, 70));
