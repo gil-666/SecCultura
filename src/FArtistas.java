@@ -57,9 +57,9 @@ public class FArtistas extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         TDepartamento = new javax.swing.JTextField();
         TNombre = new javax.swing.JTextField();
-        TSEXO = new javax.swing.JTextField();
         TId = new javax.swing.JTextField();
         TNacimietno = new javax.swing.JTextField();
+        CBSexo = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TArtistas = new javax.swing.JTable();
@@ -133,17 +133,13 @@ public class FArtistas extends javax.swing.JFrame {
             }
         });
 
-        TSEXO.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                TSEXOPropertyChange(evt);
-            }
-        });
-
         TNacimietno.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 TNacimietnoPropertyChange(evt);
             }
         });
+
+        CBSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "Desconocido", "Otro" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -159,7 +155,6 @@ public class FArtistas extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TSEXO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TNacimietno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -182,11 +177,15 @@ public class FArtistas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(TNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(TSEXO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CBSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(TNacimietno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -218,6 +217,11 @@ public class FArtistas extends javax.swing.JFrame {
                 "Nombre", "Sexo", "Nacimiento", "Departamento", "ID"
             }
         ));
+        TArtistas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TArtistasMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(TArtistas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -332,38 +336,21 @@ public class FArtistas extends javax.swing.JFrame {
 
         //1-. Obtener los datos de los controles
         String nom = TNombre.getText();
-        String sex = TSEXO.getText();
+        String sex = CBSexo.getSelectedItem().toString();
         String naci = TNacimietno.getText();
         String dep = TDepartamento.getText();
         String id = TId.getText();
 
         //2-. Crear un objeto con los datos
-        Eventos event = new Eventos(nom, sex, naci, dep, id);
+        Artista art = new Artista(nom, sex, naci, dep, id);
 
         //2-.Enviar el registro al servidor 
-        if (event.insertar(cnx) == 1) {
+        if (art.insertar(cnx) == 1) {
             cnx.entablar("SELECT * FROM artista", TArtistas);
             JOptionPane.showMessageDialog(this, "Registro Exitoso");
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar");
         }
-    }
-
-    private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {
-        DefaultTableModel datos = (DefaultTableModel) TArtistas.getModel();
-
-        int renglon = TArtistas.getSelectedRow();
-        if (renglon != -1) {
-            TNombre.setText(datos.getValueAt(renglon, 0).toString());
-
-            TSEXO.setText(datos.getValueAt(renglon, 1).toString());
-            TNacimietno.setText(datos.getValueAt(renglon, 2).toString());
-            TDepartamento.setText(datos.getValueAt(renglon, 3).toString());
-            TId.setText(datos.getValueAt(renglon, 4).toString());
-
-        }
-
-
     }//GEN-LAST:event_bRegistrarActionPerformed
 
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
@@ -379,10 +366,6 @@ public class FArtistas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TNombrePropertyChange
 
-    private void TSEXOPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TSEXOPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TSEXOPropertyChange
-
     private void TNacimietnoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TNacimietnoPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_TNacimietnoPropertyChange
@@ -392,6 +375,21 @@ public class FArtistas extends javax.swing.JFrame {
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TArtistasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TArtistasMousePressed
+        DefaultTableModel datos = (DefaultTableModel) TArtistas.getModel();
+
+        int renglon = TArtistas.getSelectedRow();
+        if (renglon != -1) {
+            TNombre.setText(datos.getValueAt(renglon, 0).toString());
+
+            CBSexo.setSelectedItem(datos.getValueAt(renglon, 1).toString());
+            TNacimietno.setText(datos.getValueAt(renglon, 2).toString());
+            TDepartamento.setText(datos.getValueAt(renglon, 3).toString());
+            TId.setText(datos.getValueAt(renglon, 4).toString());
+
+        }
+    }//GEN-LAST:event_TArtistasMousePressed
 
     /**
      * @param args the command line arguments
@@ -430,12 +428,12 @@ public class FArtistas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CBSexo;
     private javax.swing.JTable TArtistas;
     private javax.swing.JTextField TDepartamento;
     private javax.swing.JTextField TId;
     private javax.swing.JTextField TNacimietno;
     private javax.swing.JTextField TNombre;
-    private javax.swing.JTextField TSEXO;
     private javax.swing.JButton bNuevo;
     private javax.swing.JButton bRegistrar;
     private javax.swing.JButton bReporte;
