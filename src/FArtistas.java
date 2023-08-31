@@ -11,7 +11,6 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-
 /**
  *
  * @lajefa sinthia
@@ -19,22 +18,21 @@ import javax.swing.table.TableRowSorter;
  * @author hugo
  */
 public class FArtistas extends javax.swing.JFrame {
-   
+
     Conexion cnx = new Conexion();
-    
+
     public FArtistas() {
         initComponents();
         setLocationRelativeTo(this);
-        
-        
+
         if (cnx.conectar("localhost", "secretariadecultura", "root", "") == 1) {
             JOptionPane.showMessageDialog(this, "Conectado a la base de datos");
             cnx.entablar("SELECT * FROM artista", TEstudiantes);
         } else {
             JOptionPane.showMessageDialog(this, "Error en la conexión");
-            
+
         }
-        
+
     }
 
     /**
@@ -58,11 +56,11 @@ public class FArtistas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        TPresupuesto = new javax.swing.JTextField();
-        TEvento = new javax.swing.JTextField();
-        CBTipo = new javax.swing.JComboBox<>();
-        THorario = new javax.swing.JTextField();
-        TFecha = new javax.swing.JTextField();
+        TDepartamento = new javax.swing.JTextField();
+        TNombre = new javax.swing.JTextField();
+        TSEXO = new javax.swing.JTextField();
+        TId = new javax.swing.JTextField();
+        TNacimietno = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TEstudiantes = new javax.swing.JTable();
@@ -115,35 +113,39 @@ public class FArtistas extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel1.setText("HORARIO:");
+        jLabel1.setText("SEXO:");
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel2.setText("TIPO:");
+        jLabel2.setText("NACIMIENTO:");
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel3.setText("EVENTO");
+        jLabel3.setText("NOMBRE:");
 
         jLabel8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel8.setText("PRESUPUESTO:");
+        jLabel8.setText("DEPARTAMENTO:");
 
         jLabel11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 153, 255));
-        jLabel11.setText("FECHA:");
+        jLabel11.setText("ID:");
 
-        TEvento.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        TNombre.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                TEventoPropertyChange(evt);
+                TNombrePropertyChange(evt);
             }
         });
 
-        CBTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Artístico", "Cultural", "Educativo", " ", " " }));
-
-        THorario.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        TSEXO.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                THorarioPropertyChange(evt);
+                TSEXOPropertyChange(evt);
+            }
+        });
+
+        TNacimietno.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                TNacimietnoPropertyChange(evt);
             }
         });
 
@@ -160,8 +162,8 @@ public class FArtistas extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TPresupuesto)
-                            .addComponent(TFecha)))
+                            .addComponent(TDepartamento)
+                            .addComponent(TId)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -169,9 +171,9 @@ public class FArtistas extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CBTipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(THorario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TEvento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(TSEXO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TNacimietno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
@@ -180,26 +182,26 @@ public class FArtistas extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(TEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(THorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TSEXO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(CBTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TNacimietno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(TPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel11))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(529, 529, 529))
         );
 
@@ -214,7 +216,7 @@ public class FArtistas extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Evento", "Horario", "Tipo", "Presupuesto", "Fecha"
+                "Nombre", "Sexo", "Nacimiento", "Departamento", "ID"
             }
         ));
         jScrollPane1.setViewportView(TEstudiantes);
@@ -225,7 +227,7 @@ public class FArtistas extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -319,45 +321,39 @@ public class FArtistas extends javax.swing.JFrame {
     private void bRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarActionPerformed
 
         //1-. Obtener los datos de los controles
-        String evento = TEvento.getText();
-        String hor= THorario.getText();
-        String tip= CBTipo.getSelectedItem().toString();
-        String pres= TPresupuesto.getText();
-        String fecha= TFecha.getText();
-     
+        String nom = TNombre.getText();
+        String sex = TSEXO.getText();
+        String naci = TNacimietno.getText();
+        String dep = TDepartamento.getText();
+        String id = TId.getText();
 
         //2-. Crear un objeto con los datos
-        Eventos event= new Eventos(evento, hor, tip, pres, fecha);
+        Eventos event = new Eventos(nom, sex, naci, dep, id);
 
         //2-.Enviar el registro al servidor 
         if (event.insertar(cnx) == 1) {
-            cnx.entablar("SELECT * FROM evento", TEstudiantes);
+            cnx.entablar("SELECT * FROM artista", TEstudiantes);
             JOptionPane.showMessageDialog(this, "Registro Exitoso");
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar");
         }
-    }                                          
+    }
 
-    private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {                                          
-          DefaultTableModel datos = (DefaultTableModel) TEstudiantes.getModel();
+    private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {
+        DefaultTableModel datos = (DefaultTableModel) TEstudiantes.getModel();
 
         int renglon = TEstudiantes.getSelectedRow();
         if (renglon != -1) {
-            TEvento.setText(datos.getValueAt(renglon, 0).toString());
-         
-           
-            THorario.setText(datos.getValueAt(renglon, 3).toString());
-            CBTipo.setSelectedItem(datos.getValueAt(renglon, 2).toString());
-            TPresupuesto.setText(datos.getValueAt(renglon, 3).toString());
-            TFecha.setText(datos.getValueAt(renglon, 3).toString());
-        
-            
+            TNombre.setText(datos.getValueAt(renglon, 0).toString());
+
+            TSEXO.setText(datos.getValueAt(renglon, 1).toString());
+            TNacimietno.setText(datos.getValueAt(renglon, 2).toString());
+            TDepartamento.setText(datos.getValueAt(renglon, 3).toString());
+            TId.setText(datos.getValueAt(renglon, 4).toString());
+
         }
-        
-      
-        
-        
-        
+
+
     }//GEN-LAST:event_bRegistrarActionPerformed
 
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
@@ -368,18 +364,18 @@ public class FArtistas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bReporteActionPerformed
 
-    private void TEventoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TEventoPropertyChange
+    private void TNombrePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TNombrePropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_TEventoPropertyChange
+    }//GEN-LAST:event_TNombrePropertyChange
 
-    private void THorarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_THorarioPropertyChange
+    private void TSEXOPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TSEXOPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_THorarioPropertyChange
+    }//GEN-LAST:event_TSEXOPropertyChange
 
-    
-    
-    
-    
+    private void TNacimietnoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TNacimietnoPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TNacimietnoPropertyChange
+
     /**
      * @param args the command line arguments
      */
@@ -417,12 +413,12 @@ public class FArtistas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CBTipo;
+    private javax.swing.JTextField TDepartamento;
     private javax.swing.JTable TEstudiantes;
-    private javax.swing.JTextField TEvento;
-    private javax.swing.JTextField TFecha;
-    private javax.swing.JTextField THorario;
-    private javax.swing.JTextField TPresupuesto;
+    private javax.swing.JTextField TId;
+    private javax.swing.JTextField TNacimietno;
+    private javax.swing.JTextField TNombre;
+    private javax.swing.JTextField TSEXO;
     private javax.swing.JButton bNuevo;
     private javax.swing.JButton bRegistrar;
     private javax.swing.JButton bReporte;
@@ -445,5 +441,4 @@ public class FArtistas extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 
-    
 }

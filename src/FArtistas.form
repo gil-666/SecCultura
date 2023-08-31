@@ -166,8 +166,8 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TPresupuesto" max="32767" attributes="0"/>
-                              <Component id="TFecha" max="32767" attributes="0"/>
+                              <Component id="TDepartamento" max="32767" attributes="0"/>
+                              <Component id="TId" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -178,9 +178,9 @@
                           </Group>
                           <EmptySpace pref="46" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="CBTipo" alignment="1" min="-2" pref="216" max="-2" attributes="0"/>
-                              <Component id="THorario" alignment="1" min="-2" pref="216" max="-2" attributes="0"/>
-                              <Component id="TEvento" alignment="1" min="-2" pref="216" max="-2" attributes="0"/>
+                              <Component id="TSEXO" alignment="1" min="-2" pref="216" max="-2" attributes="0"/>
+                              <Component id="TNombre" alignment="1" min="-2" pref="216" max="-2" attributes="0"/>
+                              <Component id="TNacimietno" alignment="1" min="-2" pref="216" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -194,22 +194,22 @@
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TEvento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="THorario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TSEXO" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CBTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TNacimietno" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TPresupuesto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TDepartamento" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -218,7 +218,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="TFecha" min="-2" max="-2" attributes="0"/>
+                          <Component id="TId" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="529" max="-2" attributes="0"/>
@@ -235,7 +235,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="HORARIO:"/>
+            <Property name="text" type="java.lang.String" value="SEXO:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -246,7 +246,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="TIPO:"/>
+            <Property name="text" type="java.lang.String" value="NACIMIENTO:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -257,7 +257,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="EVENTO"/>
+            <Property name="text" type="java.lang.String" value="NOMBRE:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -268,7 +268,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PRESUPUESTO:"/>
+            <Property name="text" type="java.lang.String" value="DEPARTAMENTO:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
@@ -279,38 +279,27 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="66" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="FECHA:"/>
+            <Property name="text" type="java.lang.String" value="ID:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TPresupuesto">
+        <Component class="javax.swing.JTextField" name="TDepartamento">
         </Component>
-        <Component class="javax.swing.JTextField" name="TEvento">
+        <Component class="javax.swing.JTextField" name="TNombre">
           <Events>
-            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="TEventoPropertyChange"/>
+            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="TNombrePropertyChange"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="CBTipo">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Art&#xed;stico"/>
-                <StringItem index="1" value="Cultural"/>
-                <StringItem index="2" value="Educativo"/>
-                <StringItem index="3" value=" "/>
-                <StringItem index="4" value=" "/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="THorario">
+        <Component class="javax.swing.JTextField" name="TSEXO">
           <Events>
-            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="THorarioPropertyChange"/>
+            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="TSEXOPropertyChange"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="TFecha">
+        <Component class="javax.swing.JTextField" name="TId">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TNacimietno">
+          <Events>
+            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="TNacimietnoPropertyChange"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -331,7 +320,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="670" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="647" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -358,11 +347,11 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="4">
-                    <Column editable="true" title="Evento" type="java.lang.Object"/>
-                    <Column editable="true" title="Horario" type="java.lang.Object"/>
-                    <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                    <Column editable="true" title="Presupuesto" type="java.lang.Object"/>
-                    <Column editable="true" title="Fecha" type="java.lang.Object"/>
+                    <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                    <Column editable="true" title="Sexo" type="java.lang.Object"/>
+                    <Column editable="true" title="Nacimiento" type="java.lang.Object"/>
+                    <Column editable="true" title="Departamento" type="java.lang.Object"/>
+                    <Column editable="true" title="ID" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>

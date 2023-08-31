@@ -1,22 +1,20 @@
-  
+
 import java.io.Serializable;
 import java.sql.PreparedStatement;
 
 public class Artista implements Serializable {
 
-    String Nombre, Sexo, nacimiento, Departamento, ID;
+    String ID, Nombre, Sexo, nacimiento, Departamento;
 
-    public Artista(String Nombre, String Sexo, String nacimiento, String Departamento, String ID) {
+    public Artista( String ID,String Nombre, String Sexo, String nacimiento, String Departamento) {
+        this.ID = ID;
         this.Nombre = Nombre;
         this.Sexo = Sexo;
         this.nacimiento = nacimiento;
         this.Departamento = Departamento;
-        this.ID = ID;
-    }
-    
-    
 
-    
+    }
+
     public int insertar(Conexion cnx) {
         try {
             String sql = "INSERT INTO alumnos VALUES(?,?,?,?,?)";
@@ -27,10 +25,9 @@ public class Artista implements Serializable {
             ps.setString(4, Departamento);
             ps.setString(5, ID);
 
-     
             int resp = ps.executeUpdate();
             return resp;
-            
+
         } catch (Exception e) {
             System.out.println("ERROR: " + e.getMessage());
             return 0;
