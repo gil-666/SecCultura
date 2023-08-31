@@ -422,7 +422,7 @@ public class FEventos extends javax.swing.JFrame {
     }//GEN-LAST:event_bEditarActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-        String absolutePath = new File(System.getProperty("user.dir")+("/src/eventos.jrxml")).toString();
+        String absolutePath = new File(System.getProperty("user.dir")+("/src/evento.jrxml")).toString();
         cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 

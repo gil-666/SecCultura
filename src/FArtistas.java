@@ -360,7 +360,7 @@ public class FArtistas extends javax.swing.JFrame {
     }//GEN-LAST:event_bRegistrarActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-        String absolutePath = new File(System.getProperty("user.dir")+("/src/lugar.jrxml")).toString();
+        String absolutePath = new File(System.getProperty("user.dir")+("/src/artista.jrxml")).toString();
         cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
