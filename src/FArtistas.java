@@ -46,8 +46,7 @@ public class FArtistas extends javax.swing.JFrame {
 
         jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -70,6 +69,7 @@ public class FArtistas extends javax.swing.JFrame {
         bRegistrar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         bReporte = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -88,25 +88,19 @@ public class FArtistas extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
 
-        jLabel5.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Secretaria De Cultura");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(140, 20, 340, 30);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/etapa.png"))); // NOI18N
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(70, 10, 70, 64);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cultura (1).png"))); // NOI18N
-        jPanel3.add(jLabel7);
-        jLabel7.setBounds(50, 10, 70, 70);
-
-        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Registro de Artista");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(150, 40, 340, 30);
+        jLabel6.setBounds(210, 30, 410, 30);
 
         jLabel4.setBackground(new java.awt.Color(239, 217, 206));
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(0, 20, 1050, 90);
+        jLabel4.setBounds(0, 0, 1050, 90);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -286,6 +280,17 @@ public class FArtistas extends javax.swing.JFrame {
         });
         jPanel4.add(bReporte);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pagina-de-inicio.png"))); // NOI18N
+        jButton1.setText("INICIO");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1);
+
         jToolBar1.add(jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -377,6 +382,11 @@ public class FArtistas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TNacimietnoPropertyChange
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FHome home= new FHome();
+        home.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -423,15 +433,15 @@ public class FArtistas extends javax.swing.JFrame {
     private javax.swing.JButton bNuevo;
     private javax.swing.JButton bRegistrar;
     private javax.swing.JButton bReporte;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
