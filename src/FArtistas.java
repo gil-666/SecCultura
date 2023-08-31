@@ -213,6 +213,11 @@ public class FArtistas extends javax.swing.JFrame {
                 "Nombre", "Sexo", "Nacimiento", "Departamento", "ID"
             }
         ));
+        TArtistas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TArtistasMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(TArtistas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -333,32 +338,15 @@ public class FArtistas extends javax.swing.JFrame {
         String id = TId.getText();
 
         //2-. Crear un objeto con los datos
-        Eventos event = new Eventos(nom, sex, naci, dep, id);
+        Artista art = new Artista(nom, sex, naci, dep, id);
 
         //2-.Enviar el registro al servidor 
-        if (event.insertar(cnx) == 1) {
+        if (art.insertar(cnx) == 1) {
             cnx.entablar("SELECT * FROM artista", TArtistas);
             JOptionPane.showMessageDialog(this, "Registro Exitoso");
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar");
         }
-    }
-
-    private void TEstudiantesMousePressed(java.awt.event.MouseEvent evt) {
-        DefaultTableModel datos = (DefaultTableModel) TArtistas.getModel();
-
-        int renglon = TArtistas.getSelectedRow();
-        if (renglon != -1) {
-            TNombre.setText(datos.getValueAt(renglon, 0).toString());
-
-            TSEXO.setText(datos.getValueAt(renglon, 1).toString());
-            TNacimietno.setText(datos.getValueAt(renglon, 2).toString());
-            TDepartamento.setText(datos.getValueAt(renglon, 3).toString());
-            TId.setText(datos.getValueAt(renglon, 4).toString());
-
-        }
-
-
     }//GEN-LAST:event_bRegistrarActionPerformed
 
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
@@ -387,6 +375,21 @@ public class FArtistas extends javax.swing.JFrame {
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TArtistasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TArtistasMousePressed
+        DefaultTableModel datos = (DefaultTableModel) TArtistas.getModel();
+
+        int renglon = TArtistas.getSelectedRow();
+        if (renglon != -1) {
+            TNombre.setText(datos.getValueAt(renglon, 0).toString());
+
+            TSEXO.setText(datos.getValueAt(renglon, 1).toString());
+            TNacimietno.setText(datos.getValueAt(renglon, 2).toString());
+            TDepartamento.setText(datos.getValueAt(renglon, 3).toString());
+            TId.setText(datos.getValueAt(renglon, 4).toString());
+
+        }
+    }//GEN-LAST:event_TArtistasMousePressed
 
     /**
      * @param args the command line arguments
