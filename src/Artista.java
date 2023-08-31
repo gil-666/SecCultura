@@ -33,4 +33,23 @@ public class Artista implements Serializable {
             return 0;
         }
     }
+    
+    public int editar(Conexion cnx){
+        try {
+            String sql = "UPDATE artista SET Nombre = ?, Sexo = ?, nacimiento = ?, Departamento = ? WHERE ID = ?";
+            PreparedStatement ps = cnx.con.prepareStatement(sql);
+            ps.setString(1, Nombre);
+            ps.setString(2, Sexo);
+            ps.setString(3, nacimiento);
+            ps.setString(4, Departamento);
+            ps.setString(5, ID);
+
+            int resp = ps.executeUpdate();
+            return resp;
+
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e.getMessage());
+            return 0;
+        }
+    }
 }

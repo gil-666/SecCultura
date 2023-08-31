@@ -64,11 +64,11 @@ public class FArtistas extends javax.swing.JFrame {
         TArtistas = new javax.swing.JTable();
         jToolBar1 = new javax.swing.JToolBar();
         jPanel4 = new javax.swing.JPanel();
-        bNuevo = new javax.swing.JButton();
         bRegistrar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         bReporte = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        bEditar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -249,21 +249,6 @@ public class FArtistas extends javax.swing.JFrame {
         jPanel4.setPreferredSize(new java.awt.Dimension(400, 70));
         jPanel4.setLayout(new java.awt.GridLayout(1, 2));
 
-        bNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/new2.png"))); // NOI18N
-        bNuevo.setText("NUEVO");
-        bNuevo.setFocusable(false);
-        bNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bNuevo.setMaximumSize(new java.awt.Dimension(60, 64));
-        bNuevo.setMinimumSize(new java.awt.Dimension(60, 64));
-        bNuevo.setPreferredSize(new java.awt.Dimension(60, 64));
-        bNuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        bNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bNuevoActionPerformed(evt);
-            }
-        });
-        jPanel4.add(bNuevo);
-
         bRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/add1.png"))); // NOI18N
         bRegistrar.setText("REGISTRAR");
         bRegistrar.setFocusable(false);
@@ -302,6 +287,19 @@ public class FArtistas extends javax.swing.JFrame {
 
         jToolBar1.add(jPanel4);
 
+        bEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/edit2.png"))); // NOI18N
+        bEditar.setText("EDITAR REGISTRO");
+        bEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bEditar.setMaximumSize(new java.awt.Dimension(60, 64));
+        bEditar.setMinimumSize(new java.awt.Dimension(60, 64));
+        bEditar.setPreferredSize(new java.awt.Dimension(60, 64));
+        bEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -313,7 +311,10 @@ public class FArtistas extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -321,7 +322,9 @@ public class FArtistas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -353,10 +356,6 @@ public class FArtistas extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_bRegistrarActionPerformed
-
-    private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
-
-    }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
         String absolutePath = new File(System.getProperty("user.dir")+("/src/lugar.jrxml")).toString();
@@ -391,6 +390,27 @@ public class FArtistas extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_TArtistasMousePressed
+
+    private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
+        //1-. Obtener los datos de los controles
+        String nom = TNombre.getText();
+        String sex = CBSexo.getSelectedItem().toString();
+        String naci = TNacimietno.getText();
+        String dep = TDepartamento.getText();
+        String id = TId.getText();
+
+        //2-. Crear un objeto con los datos
+        Artista art = new Artista(nom, sex, naci, dep, id);
+
+        //2-.Enviar el registro al servidor 
+        if (art.editar(cnx) == 1) {
+            cnx.entablar("SELECT * FROM artista", TArtistas);
+            JOptionPane.showMessageDialog(this, "Registro Exitoso");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al registrar");
+            System.exit(0);
+        }
+    }//GEN-LAST:event_bEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -435,7 +455,7 @@ public class FArtistas extends javax.swing.JFrame {
     private javax.swing.JTextField TId;
     private javax.swing.JTextField TNacimietno;
     private javax.swing.JTextField TNombre;
-    private javax.swing.JButton bNuevo;
+    private javax.swing.JButton bEditar;
     private javax.swing.JButton bRegistrar;
     private javax.swing.JButton bReporte;
     private javax.swing.JButton jButton1;

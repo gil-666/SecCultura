@@ -42,6 +42,26 @@ public class Lugar {
         }
     }
     
+    public int editar(Conexion cnx){
+        try {
+            String sql = "UPDATE lugar SET Nombre_lugar = ?, Ubicacion = ?, Capacidad = ?, Tamano_m2 = ? WHERE id_lugar = ?";
+            PreparedStatement ps = cnx.con.prepareStatement(sql);
+            ps.setString(1, Nombre_lugar);
+            ps.setString(2, Ubicacion);
+            ps.setString(3, Capacidad);
+            ps.setString(4, Tamano_m2);
+            ps.setString(5, id_lugar);
+
+            
+            int resp = ps.executeUpdate();
+            return resp;
+            
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e.getMessage());
+            return 0;
+        }
+    }
+    
     
     }
     

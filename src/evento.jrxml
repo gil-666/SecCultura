@@ -30,6 +30,11 @@
 		<property name="com.jaspersoft.studio.field.label" value="Fecha"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="evento"/>
 	</field>
+	<field name="ID_EVENTO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ID_EVENTO"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID_EVENTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evento"/>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -58,7 +63,7 @@
 	<columnHeader>
 		<band height="30" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="100" height="30" backcolor="#FFADFB" uuid="b63c95ec-496a-44ea-b69a-8d98829ce838">
+				<reportElement mode="Opaque" x="50" y="0" width="100" height="30" backcolor="#FFADFB" uuid="b63c95ec-496a-44ea-b69a-8d98829ce838">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="060942e9-c1ee-4f32-9a92-9c5663ad0ebc"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -67,7 +72,7 @@
 				<text><![CDATA[Evento]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="100" y="0" width="180" height="30" backcolor="#FFADFB" uuid="65b8d721-8533-4dcf-842b-f4d29959752f">
+				<reportElement mode="Opaque" x="150" y="0" width="120" height="30" backcolor="#FFADFB" uuid="65b8d721-8533-4dcf-842b-f4d29959752f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="453ab388-92d8-4f0c-bb4b-53b0407f439e"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -76,7 +81,7 @@
 				<text><![CDATA[Horario]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="280" y="0" width="100" height="30" backcolor="#FFADFB" uuid="4d650f73-ceec-4527-beb7-85df41e35454">
+				<reportElement mode="Opaque" x="270" y="0" width="100" height="30" backcolor="#FFADFB" uuid="4d650f73-ceec-4527-beb7-85df41e35454">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="22eaca98-2e93-498b-b1b4-e6e3907e7e94"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -85,7 +90,7 @@
 				<text><![CDATA[Tipo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="380" y="0" width="100" height="30" backcolor="#FFADFB" uuid="66efaf43-a750-4447-87eb-b75d216d3097">
+				<reportElement mode="Opaque" x="370" y="0" width="100" height="30" backcolor="#FFADFB" uuid="66efaf43-a750-4447-87eb-b75d216d3097">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8148808d-9b2e-4397-b903-a4d0f2ee52e9"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -94,7 +99,7 @@
 				<text><![CDATA[Presupuesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="480" y="0" width="100" height="30" backcolor="#FFADFB" uuid="ba0f4eef-6f26-4aa5-9f05-83a3decbbe2b">
+				<reportElement mode="Opaque" x="470" y="0" width="100" height="30" backcolor="#FFADFB" uuid="ba0f4eef-6f26-4aa5-9f05-83a3decbbe2b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7aa866c6-c58d-4d55-ab0b-fe8c0311595f"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -102,12 +107,21 @@
 				</textElement>
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="50" height="30" backcolor="#FFADFB" uuid="474676bd-4c3f-47af-b22b-f804f842708a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="060942e9-c1ee-4f32-9a92-9c5663ad0ebc"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Sylfaen" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30" splitType="Stretch">
+		<band height="31" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="30" uuid="0c7f2898-928e-4afa-bab5-5e8a89ed4e84">
+				<reportElement x="50" y="0" width="100" height="30" uuid="0c7f2898-928e-4afa-bab5-5e8a89ed4e84">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="060942e9-c1ee-4f32-9a92-9c5663ad0ebc"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
@@ -120,7 +134,7 @@
 				<textFieldExpression><![CDATA[$F{Evento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="0" width="180" height="30" uuid="36138e83-b392-4103-a9b3-1e5f89df5a12">
+				<reportElement x="150" y="0" width="120" height="30" uuid="36138e83-b392-4103-a9b3-1e5f89df5a12">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="453ab388-92d8-4f0c-bb4b-53b0407f439e"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
@@ -133,7 +147,7 @@
 				<textFieldExpression><![CDATA[$F{Horario}.toString()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="280" y="0" width="100" height="30" uuid="a3a006c2-8056-4203-814a-7c238ba1cc95">
+				<reportElement x="270" y="0" width="100" height="30" uuid="a3a006c2-8056-4203-814a-7c238ba1cc95">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="22eaca98-2e93-498b-b1b4-e6e3907e7e94"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
@@ -146,7 +160,7 @@
 				<textFieldExpression><![CDATA[$F{Tipo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="380" y="0" width="100" height="30" uuid="8c12a527-9929-4d17-aa4a-ffbc75283d76">
+				<reportElement x="370" y="0" width="100" height="30" uuid="8c12a527-9929-4d17-aa4a-ffbc75283d76">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8148808d-9b2e-4397-b903-a4d0f2ee52e9"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
@@ -159,7 +173,7 @@
 				<textFieldExpression><![CDATA[$F{Presupuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="480" y="0" width="100" height="30" uuid="9037aa6b-b05a-44ef-b6ab-15e916075581">
+				<reportElement x="470" y="0" width="100" height="30" uuid="9037aa6b-b05a-44ef-b6ab-15e916075581">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7aa866c6-c58d-4d55-ab0b-fe8c0311595f"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 				</reportElement>
@@ -170,6 +184,15 @@
 					<paragraph leftIndent="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="50" height="30" uuid="9bd51166-c0e5-415b-9226-69bb413cd92b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a6eb3275-a435-42f4-abf2-15d65ff6e386"/>
+				</reportElement>
+				<box padding="0">
+					<pen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ID_EVENTO}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
