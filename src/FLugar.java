@@ -344,11 +344,11 @@ public class FLugar extends javax.swing.JFrame {
      
 
         //2-. Crear un objeto con los datos
-        Lugar lug= new Lugar(nombre_lugar, nombre_lugar, ubi, cap, tam);
+        Lugar lug= new Lugar(id, nombre_lugar, ubi, cap, tam);
 
         //2-.Enviar el registro al servidor 
         if (lug.insertar(cnx) == 1) {
-            cnx.entablar("SELECT * FROM evento", TLugar);
+            cnx.entablar("SELECT * FROM lugar", TLugar);
             JOptionPane.showMessageDialog(this, "Registro Exitoso");
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar");
@@ -382,7 +382,7 @@ public class FLugar extends javax.swing.JFrame {
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReporteActionPerformed
-        String absolutePath = "C:/Users/troll/OneDrive/Escritorio/SecCultura/src/lugar.jrxml";
+        String absolutePath = "C:/Users/Sinthia Anaya/Desktop/SecCultura/src/lugar.jrxml";
         cnx.ejecutarReporte(absolutePath, null);
     }//GEN-LAST:event_bReporteActionPerformed
 
